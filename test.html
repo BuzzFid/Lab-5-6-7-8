@@ -1,0 +1,68 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns = "http://www.w3.org/1999/xhtml">
+<head>
+<script type="text/javascript">
+<!--
+// disable button
+function disable_button()
+{
+document.getElementById("myButton").disabled=true;
+}
+// change size of image
+function changeSize()
+{
+document.getElementById("compman").height="250";
+document.getElementById("compman").width="300";
+}
+// change link
+function change(name)
+{document.links[0].href="http://"+name;
+document.getElementById("link1").innerHTML = "http://"+name;
+}
+
+function addtext(what){
+if (document.createTextNode){
+var mytext=document.createTextNode(what)
+document.getElementById("mydiv").appendChild(mytext)
+}
+}
+
+
+
+//-->
+</script>
+</head>
+<body>
+  <!-- Button that disables itself when clicked -->
+<button id="myButton" type="button" onclick="disable_button()">
+Click to disable me
+</button>
+
+<br /><br />
+<!-- Link that changes when clicked -->
+<img id="compman" src="kau.png" width="107" height="98" alt="kau pic" />
+<br />
+<input type="button" onclick="changeSize()" value="Change size of image" />
+
+
+<br /><br />
+
+<form name="form1">
+  
+  <a id="link1" href="http://www.javascriptsource.com">www.javascriptsource.com</a> 
+  </br />
+  <label for="menu1">Choose a website:</label>
+  <select name="menu1" onChange="change(this.options[menu1.selectedIndex].text)">
+    <option selected>www.javascriptsource.com</option>
+    <option>www.javascripts.com</option>
+    <option>www.webdevelopersjournal.com</option>
+  </select>
+</form>
+<br /><br />
+<div id="mydiv" onClick="addtext(' This Text was added to the DIV.')" style="font:20px bold; cursor:hand">Click here for example</div>
+
+
+</body>
+</html>

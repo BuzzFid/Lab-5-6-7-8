@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>gallery-demo</title>
+  <link rel="stylesheet" type="text/css" href="CSS_Lab07.css">
+
+  <script type="text/javascript">
+// change size of image
+function changeSize()
+{
+document.getElementById("compman").height="250";
+document.getElementById("compman").width="300";
+}
+
+// disable button
+function disable_button()
+{
+document.getElementById("myButton").disabled=true;
+}
+
+// change image
+function changeImage(srcPath){
+document.getElementById("compman").src=srcPath;
+}
+// reset all changes
+function resetAll(){
+document.getElementById("compman").src="kau.png";
+document.getElementById("compman").height="98";
+document.getElementById("compman").width="107";
+document.getElementById("myButton").disabled=false;
+document.links[0].href="http://www.javascriptsource.com";
+document.getElementById("link1").innerHTML = "http://www.javascriptsource.com";
+}
+
+// change link
+function change(name)
+{document.links[0].href="http://"+name;
+document.getElementById("link1").innerHTML = "http://"+name;
+}
+
+function addNote()
+{
+var note=document.getElementById("note").value;
+if(note!="")
+{
+var li=document.createElement("li");
+var text=document.createTextNode(note);
+li.appendChild(text);
+document.getElementById("noteList").appendChild(li);
+document.getElementById("note").value="";
+}
+}
+
+
+  </script>
+</head>
+<body>
+<h1> Lab 07 - DOM Manipulation (Moder Answer)</h1>
+<section>
+<h2> Interactive Image</h2>
+<img id="compman" src="kau.png" width="107" height="98" alt="kau pic" />
+<br /> <br /> 
+<p> Click thumbnails to swap image, or use the buttons. </p>
+  <!-- Button that disables itself when clicked -->
+<button id="myButton" type="button" onclick="disable_button()">
+Disable This Button
+</button>
+<!-- Button to resize image -->
+<input type="button" onclick="changeSize()" value="Resize Image" />
+
+<!-- Button to change image -->
+<input type="button" onclick="changeImage('FCIT.png')" value="Change Image" />
+<!-- Button to reset all changes -->
+<input type="button" onclick="resetAll()" value="Reset" />
+</section>
+<br />
+
+<!-- Dynamic Link -->
+ <section>
+<form name="form1">
+  <h2> Dynamic Link</h2>
+  <a id="link1" href="http://www.javascriptsource.com">www.javascriptsource.com</a> 
+  </br /> </br /></br />
+  <label for="menu1">Choose a website:</label>
+  <select name="menu1" onChange="change(this.options[menu1.selectedIndex].text)">
+    <option selected>www.javascriptsource.com</option>
+    <option>www.javascripts.com</option>
+    <option>www.webdevelopersjournal.com</option>
+  </select>
+</form>
+ </section>
+
+<br /><br /> 
+<section>
+<h2>Notes Area</h2>
+<input type="button" value="Add Note" onclick="addNote()"/>
+<ul id="noteList"></ul>
+</section>
+</body>
+
+</html>

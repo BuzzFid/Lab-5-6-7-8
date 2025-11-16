@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gradebook + Feedback</title>
+  <link rel="stylesheet" type="text/css" href="Lab05_ExerciseStyle.css">
+  <script type="text/javascript">
+  <!--
+  var studentCount = 0;
+  // اطلب عدد الطلاب مع إعادة الطلب حتى يكون إدخال صالح
+  while (studentCount <= 0) {
+    var input = window.prompt("How many students will you enter?", "1");
+    if (input !== null) studentCount = parseInt(input, 10);
+    if (isNaN(studentCount) || studentCount <= 0) studentCount = 0;
+  }
+
+  document.writeln("<h1>Gradebook + Feedback</h1>");
+  document.writeln("<form id='gradeForm'>");
+
+  // إنشاء حقول للطلاب
+  for (var i = 1; i <= studentCount; i++) {
+    document.writeln("<fieldset><legend>Student " + i + "</legend>");
+    document.writeln("Name: <input type='text' id='n" + i + "' required /><br/>");
+    document.writeln("Mark 1: <input type='number' id='m1" + i + "' min='0' max='100' required /><br/>");
+    document.writeln("Mark 2: <input type='number' id='m2" + i + "' min='0' max='100' required /><br/>");
+    document.writeln("Mark 3: <input type='number' id='m3" + i + "' min='0' max='100' required /><br/>");
+    document.writeln("</fieldset>");
+  }
+
+  // زر حساب النتائج
+  document.writeln("<input type='button' value='Compute Results' onclick='computeResults()' />");
+  document.writeln("</form>");
+  document.writeln("<div id='output'></div>");
+
+// the start of the table
+  function computeResults() {
+    var out =` <table>
+        <tr>
+            <th>Name</th>
+            <th>Mark 1</th>
+            <th>Mark 2</th>
+            <th>Mark 3</th>
+            <th>Average</th>
+            <th>Status</th>
+            </tr>
+
+        `
+    var totalAvg = 0;
+
+    for (var i = 1; i <= studentCount; i++) {
+      var name = document.getElementById("n" + i).value;
+      var m1 = parseFloat(document.getElementById("m1" + i).value);
+      var m2 = parseFloat(document.getElementById("m2" + i).value);
+      var m3 = parseFloat(document.getElementById("m3" + i).value);
+
+      if (isNaN(m1) || isNaN(m2) || isNaN(m3) || name === "") {
+        alert("Please enter all fields for Student " + i);
+        return;
+      }
+
+      var avg = (m1 + m2 + m3) / 3;
+      totalAvg += avg;
+      var status = avg >= 50 ? "Pass" : "Fail";
+
+      out += "<tr><td>" + name + "</td><td>" + m1 + "</td><td>" + m2 + "</td><td>" + m3 +
+             "</td><td>" + avg.toFixed(2) + "</td><td>" + status + "</td></tr>";
+    }
+
+    var classAvg = totalAvg / studentCount;
+    out += "<tr><td colspan='4'><strong>Class average:</strong></td><td colspan='2'><strong>" +
+           classAvg.toFixed(2) + "</strong></td></tr> </table>"; // the end of the table 
+
+    document.getElementById("output").innerHTML = out;
+  }
+  //-->
+  </script>
+</head>
+<body>
+  <p><a href="index.html">Back to index</a></p>
+</body>
+</html>

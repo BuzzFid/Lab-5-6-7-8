@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>events-demo</title>
+    <link rel="stylesheet" type="text/css" href="CSS_Lab07.css">
+
+    <style type="text/css">
+        div {
+            padding: 5px;
+            margin: 10px;
+
+            width: 12em
+        }
+    </style>
+
+    <script type="text/javascript">
+
+        function setDarkMode() {
+            document.body.style.backgroundColor = "black";
+            document.body.style.color = "white";
+        }
+
+        function setLightMode() {
+            document.body.style.backgroundColor = "white";
+            document.body.style.color = "black";
+        }
+
+
+        function handleEvent() {
+            alert("The event was successfully handled.");
+        }
+        function registerHandler() {
+            var traditional = document.getElementById("traditional");
+            traditional.onclick = handleEvent;
+        }
+
+        var seconds = 0;
+
+        // called when the page loads to begin the timer
+        function startTimer() {
+            // 1000 milliseconds = 1 second
+            window.setInterval("updateTime()", 1000);
+        } // end function startTimer
+
+        // called every 1000 ms to update the timer
+        function updateTime() {
+            ++seconds;
+            document.getElementById("soFar").innerHTML = seconds;
+        }
+
+        var helpArray =
+            ["Enter your name in this input box.", // element 0
+                "Enter your e-mail address in this input box, " +
+                "in the format user@domain.", // element 1
+                "Check this box if you liked our site.", // element 2
+                "In this box, enter any comments you would " +
+                "like us to read.", // element 3
+                "This button submits the form to the " +
+                "server-side script.", // element 4
+                "This button clears the form.", // element 5
+                ""]; // element 6
+        function helpText(messageNum) {
+            document.getElementById("tip").innerHTML =
+                helpArray[messageNum];
+        } // end function helpText
+
+    </script>
+</head>
+
+<body onload="startTimer()">
+
+
+
+
+
+
+    <h1> Lab08 - Model Answer</h1>
+    <p> This page demonstrates event registration (light/dark mode toggle), an onload timer using setInterval, and form
+        focus/bur help text</p>
+<button style="cursor: pointer;" onclick="setDarkMode()">Dark Mode</button>
+    <button style="cursor: pointer;" onclick="setLightMode()">Light Mode</button>
+
+    <h2>B) onload + setInterval() Timer</h2>
+    <p>Seconds you have spent viewing this page so far:
+        <strong id="soFar">0</strong>
+    </p>
+    <h2>C) Form Using onfocus and onblur</h2>
+    <form id="myForm" action="">
+        <div>
+            Name: <input type="text" name="name" onfocus="helpText(0)" onblur="helpText(6)" /><br />
+            E-mail: <input type="text" name="e-mail" onfocus="helpText(1)" onblur="helpText(6)" /><br />
+            Click here if you like this site
+            <input type="checkbox" name="like" onfocus="helpText(2)" onblur="helpText(6)" /><br />
+            Any comments?<br />
+            <textarea name="comments" rows="5" cols="45" onfocus="helpText(3)" onblur="helpText(6)"></textarea> <br />
+            <input type="submit" value="Submit" onfocus="helpText(4)" onblur="helpText(6)" />
+            <input type="reset" value="Reset" onfocus="helpText(5)" onblur="helpText(6)" />
+        </div>
+    </form>
+    <div id="tip">
+    </div>
+
+</body>
+
+</html>
