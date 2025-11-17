@@ -31,6 +31,7 @@ document.getElementById("compman").width="107";
 document.getElementById("myButton").disabled=false;
 document.links[0].href="http://www.javascriptsource.com";
 document.getElementById("link1").innerHTML = "http://www.javascriptsource.com";
+
 }
 
 // change link
@@ -41,16 +42,34 @@ document.getElementById("link1").innerHTML = "http://"+name;
 
 function addNote()
 {
-var note=document.getElementById("note").value;
-if(note!="")
+// when i click the button is shows note is added down without typing anything
+var ul = document.getElementById("noteList");
+var li = document.createElement("li");
+li.appendChild(document.createTextNode("Note Added"));
+// adding list item to unordered list
+ul.appendChild(li);
+
+}
+
+function promptNote()
+{ 
+var note = window.prompt("Enter your note:");
+var ul = document.getElementById("noteList");
+var li = document.createElement("li");
+// note refers to what user types in prompt box
+li.appendChild(document.createTextNode(note));
+// adding list item to unordered list
+ul.appendChild(li);
+
+
+}
+
+function clearNotes()
 {
-var li=document.createElement("li");
-var text=document.createTextNode(note);
-li.appendChild(text);
-document.getElementById("noteList").appendChild(li);
-document.getElementById("note").value="";
+var ul = document.getElementById("noteList");
+ul.innerHTML = "";
 }
-}
+
 
 
   </script>
@@ -93,10 +112,15 @@ Disable This Button
 
 <br /><br /> 
 <section>
-<h2>Notes Area</h2>
-<input type="button" value="Add Note" onclick="addNote()"/>
+<h2>Add Notes (Append Child)</h2>
+<!-- Button to add notes  -->
+<input type="button" value="Add Note" onclick="addNote()" style="margin-right:8px;"/>
+<!-- Button to add notes with prompt -->
+<input type="button" value="Add Custom Note (prompt)" onclick="promptNote()">
+<input type="button" value="Clear Notes" onclick="clearNotes()" />
 <ul id="noteList"></ul>
+
 </section>
 </body>
 
-</html>
+</html> 
