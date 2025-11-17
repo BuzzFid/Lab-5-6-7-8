@@ -5,7 +5,7 @@
   <title>gallery-demo</title>
   <link rel="stylesheet" type="text/css" href="CSS_Lab07.css">
 
-  <script type="text/javascript">
+<script type="text/javascript">
 // change size of image
 function changeSize()
 {
@@ -29,8 +29,8 @@ document.getElementById("compman").src="kau.png";
 document.getElementById("compman").height="98";
 document.getElementById("compman").width="107";
 document.getElementById("myButton").disabled=false;
-document.links[0].href="http://www.javascriptsource.com";
-document.getElementById("link1").innerHTML = "http://www.javascriptsource.com";
+document.links[0].href="http://www.x.com";
+document.getElementById("link1").innerHTML = "http://www.x.com";
 
 }
 
@@ -42,32 +42,35 @@ document.getElementById("link1").innerHTML = "http://"+name;
 
 function addNote()
 {
-// when i click the button is shows note is added down without typing anything
-var ul = document.getElementById("noteList");
-var li = document.createElement("li");
-li.appendChild(document.createTextNode("Note Added"));
-// adding list item to unordered list
-ul.appendChild(li);
+    var ul = document.getElementById("noteList");
 
+    // loop runs once every time you press the button
+    for (var i = 0; i < 1; i++)
+    {
+        var li = document.createElement("li");       //create list item
+        li.appendChild(document.createTextNode("Note Added")); // add text to list item
+        ul.appendChild(li); // add list item to unordered list
+    }
 }
 
 function promptNote()
 { 
 var note = window.prompt("Enter your note:");
 var ul = document.getElementById("noteList");
+// loop runs once every time you press the button
+for (var i = 0; i < 1; i++)
+    {
 var li = document.createElement("li");
-// note refers to what user types in prompt box
-li.appendChild(document.createTextNode(note));
-// adding list item to unordered list
-ul.appendChild(li);
-
+li.appendChild(document.createTextNode(note)); // note refers to what user types in prompt box
+ul.appendChild(li); // adding list item to unordered list
+    }
 
 }
 
 function clearNotes()
 {
 var ul = document.getElementById("noteList");
-ul.innerHTML = "";
+ul.innerHTML = ""; // innerHTML clears all list items
 }
 
 
@@ -96,19 +99,26 @@ Disable This Button
 <br />
 
 <!-- Dynamic Link -->
- <section>
-<form name="form1">
-  <h2> Dynamic Link</h2>
-  <a id="link1" href="http://www.javascriptsource.com">www.javascriptsource.com</a> 
-  </br /> </br /></br />
-  <label for="menu1">Choose a website:</label>
-  <select name="menu1" onChange="change(this.options[menu1.selectedIndex].text)">
-    <option selected>www.javascriptsource.com</option>
-    <option>www.javascripts.com</option>
-    <option>www.webdevelopersjournal.com</option>
-  </select>
-</form>
- </section>
+<section>
+  <form name="form1">
+    <h2> Dynamic Link</h2>
+
+    <a id="link1" href="http://www.x.com">
+      www.x.com
+    </a>
+  
+    </br /> </br /></br />
+
+    <label for="menu1">Choose a website:</label>
+<!-- Drop down menu -->
+    <select name="menu1" onChange="change(this.options[menu1.selectedIndex].text)">
+      <option selected>www.x.com</option>
+      <option>www.youtube.com</option>
+      <option>www.instagram.com</option>
+    </select>
+
+  </form>
+</section>
 
 <br /><br /> 
 <section>
