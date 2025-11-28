@@ -20,8 +20,22 @@ document.getElementById("myButton").disabled=true;
 }
 
 // change image
-function changeImage(srcPath){
-document.getElementById("compman").src=srcPath;
+function changeImage(){
+const image = document.getElementById("compman");
+if (image.src.match("kau.png")){
+image.src="FCIT.png";
+}
+else {
+image.src="kau.png";
+}
+
+}
+
+// change image by the photo clicked
+function changeImagepic(pic){
+ image = document.getElementById("compman");
+image.src=pic;
+
 }
 // reset all changes
 function resetAll(){
@@ -95,6 +109,8 @@ Disable This Button
 <input type="button" onclick="changeImage('FCIT.png')" value="Change Image" />
 <!-- Button to reset all changes -->
 <input type="button" onclick="resetAll()" value="Reset" />
+<img src="FCIT.png" alt="FCIT pic" width="50" height="50" onclick="changeImagepic('FCIT.png')" style="cursor: pointer;"/>
+<img src="kau.png" alt="kau pic" width="50" height="50" onclick="changeImagepic('kau.png')" style="cursor: pointer;"/>
 </section>
 <br />
 
