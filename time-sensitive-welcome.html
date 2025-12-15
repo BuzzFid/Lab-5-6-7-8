@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript">
+var name;
+var now = new Date();
+var hour = now.getHours();
+
+name = window.prompt("Please enter your name:");
+
+if(hour < 12)
+    document.write("<h1>Good Morning,  </h1>");
+
+if(hour >= 12)
+{
+
+    hour = hour - 12;
+
+    if(hour < 6){
+        document.write("<h1> Good Afternoon,  </h1>");
+    }
+
+    if(hour >= 6){
+        document.write("<h1> Good Evening,  </h1>");
+    }
+
+}
+
+
+document.write(name + " welcome to our website!");
+
+
+</script>
+    <title>Welcome Page with time</title>
+</head>
+<body>
+
+
+</body>
+    </script>
+</html>
+
+
+
