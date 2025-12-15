@@ -10,7 +10,7 @@
    <p>Please fill out this form to help us improve our site.</p>
 
  
-   <form method="post" action="">
+   <form method="post" action="" autocomplete="on">
       <!--hidden inputs for server-side processing -->
       <input type="hidden" name="recipient" value="your.email@example.com" />
       <input type="hidden" name="subject" value="Feedback Form" />
@@ -69,10 +69,48 @@
       </select>
    </label>
 
+</br>
+<label> Pick date
+      <input type="date" name="date" />
+</label>
+
+</br>
+
+<label> Birth Month
+   <input type="text" placeholder="Month" list="months">
+   <datalist id="months">
+      <option value="January" />
+      <option value="February" />
+      <option value="March" />
+      <option value="April" />
+      <option value="May" />
+      <option value="June" />
+      <option value="July" />
+      <option value="August" />
+      <option value="September" />
+      <option value="October" />
+      <option value="November" />
+      <option value="December" />
+   </datalist>
+</label>
+<section id="1">
+<nav>
+<h2>Recent Publications</h2>
+</nav>
+<ul>
+<li><a href="#"> Internet & world wide web</a></li>
+<li><a href="#"> IPhone for programmers</a></li>
+<li><a href="#"> Java how to program</a></li>
+<li><a href="#"> C++ how to program</a></li>
+</ul>
+</section
+
+
+     <p>
+      <input type="submit" value="Submit Feedback" />
+      <input type="reset" value="Reset Form" />
+
 <!-- submit and reset buttons -->
-   <p>
-      <input type="submit" value="Submit" />
-      <input type="reset" value="Clear" />
    </p>
 
    </form>
